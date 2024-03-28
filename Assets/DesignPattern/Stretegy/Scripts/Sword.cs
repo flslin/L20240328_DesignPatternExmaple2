@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class Sword : IWeapon
 {
-    
+    public void Attack()
+    {
+        Debug.Log("[Sword] Attack to Target!");
+    }
 }

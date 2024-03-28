@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class Arrow : IWeapon
 {
-    
+    public void Attack()
+    {
+        Debug.Log("[Arrow] Attack to Target!");
+    }
 }
