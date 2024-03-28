@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IWeapon
 {
-    void Attack();
+    void Attack(); // 디버그용
+    void Attack(GameObject obj); // 실제 공격용
 }
