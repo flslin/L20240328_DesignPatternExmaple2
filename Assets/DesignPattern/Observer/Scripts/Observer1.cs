@@ -7,9 +7,20 @@ using UnityEngine;
 
 class Observer1 : Observer
 {
-    public override void OnNotify()
+    GameObject obj;
+
+    public Observer1(GameObject obj)
     {
-        Debug.Log("Observer2 실행");
+        this.obj = obj;
+    }
+
+    public override void OnNotify(int number)
+    {
+        int value = obj.gameObject.GetComponent<MonoSubject>().GetNumber();
+
+        Debug.Log("Observer1 실행");
+        Debug.Log("오브젝트를 통해 얻어 온 값 : " + value);
+        Debug.Log("매개변수 값 : " + number);
     }
 }
 

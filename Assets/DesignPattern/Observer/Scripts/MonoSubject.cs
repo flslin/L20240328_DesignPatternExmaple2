@@ -5,14 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class MonoSubject : MonoBehaviour, Subject
+class MonoSubject : MonoBehaviour, ISubject
 {
     List<Observer> observers = new List<Observer>(); // 옵저버들을 관리하는 List
+    private int number;
+
+    public int GetNumber() {  return number; }
 
     private void Start()
     {
-        var observer1 = new Observer1();
-        var observer2 = new Observer2();
+        number = 10;
+
+        var observer1 = new Observer1(gameObject);
+        var observer2 = new Observer2(gameObject);
 
         Subscribe(observer1);
         Subscribe(observer2);
@@ -25,7 +30,7 @@ class MonoSubject : MonoBehaviour, Subject
     {
         foreach(Observer observer in observers)
         {
-            observer.OnNotify();
+            observer.OnNotify(number);
         }
     }
 
